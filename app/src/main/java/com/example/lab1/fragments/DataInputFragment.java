@@ -1,24 +1,25 @@
-package com.example.lab1;
+package com.example.lab1.fragments;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-public class DataInput extends Fragment {
+import com.example.lab1.models.Data;
+import com.example.lab1.R;
+
+public class DataInputFragment extends Fragment {
 
     private EditText inputFirstNumberText;
     private EditText inputSecondNumberText;
     private RadioGroup radioGroup;
     private int checkedButtonId;
-    public DataInput(){
+    public DataInputFragment(){
         super(R.layout.input_data);
     }
     View rootView;

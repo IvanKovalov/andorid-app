@@ -5,13 +5,15 @@ import androidx.fragment.app.FragmentManager;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.lab1.fragments.ContentFragment;
+import com.example.lab1.fragments.DataInputFragment;
+import com.example.lab1.models.Data;
 
 public class MainActivity extends AppCompatActivity implements OnSelectedButtonListener{
 
@@ -42,48 +44,7 @@ public class MainActivity extends AppCompatActivity implements OnSelectedButtonL
         inputSecondNumberText = findViewById(R.id.secondNumberEditText);
         textView = findViewById(R.id.textView);
         radioGroup = findViewById(R.id.operationsRadioGroup);
-       /* button.setOnClickListener(new View.OnClickListener () {
 
-            @SuppressLint("DefaultLocale")
-            @Override
-            public void onClick(View view) {
-                if (inputSecondNumberText.getText().toString().equals("") || inputFirstNumberText.getText().toString().equals("")){
-                    Toast toast = Toast.makeText(getApplicationContext(),
-                            "Заповніть усі поля!", Toast.LENGTH_SHORT);
-                    toast.show();
-                    return;
-                }
-
-                double firstNumber = Double.parseDouble(String.valueOf(inputFirstNumberText.getText()));
-                double secondNumber = Double.parseDouble(String.valueOf(inputSecondNumberText.getText()));
-                checkedButtonId = radioGroup.getCheckedRadioButtonId();
-
-                double res;
-                switch (checkedButtonId) {
-                    case -1:
-                        Toast.makeText(getApplicationContext(), "Ви нічого не обрали!",
-                                Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.PlusButton:
-                        res = firstNumber + secondNumber;
-                        textView.setText(String.format("Result: %.2f", res));
-                        break;
-                    case R.id.MinusButton:
-                        res = firstNumber - secondNumber;
-                        textView.setText(String.format("Result: %.2f", res));
-                        break;
-                    case R.id.DivButton:
-                        res = firstNumber / secondNumber;
-                        textView.setText(String.format("Result: %.2f", res));
-                        break;
-                    case R.id.MulButton:
-                        res = firstNumber * secondNumber;
-                        textView.setText(String.format("Result: %.2f", res));
-                        break;
-
-                }
-            }
-        });*/
     }
 
     @Override
@@ -93,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements OnSelectedButtonL
         // Получаем ссылку на второй фрагмент по ID
         ContentFragment contentFragment = (ContentFragment) fragmentManager
                 .findFragmentById(R.id.fragment_container_view);
-        DataInput dataInput = (DataInput) fragmentManager
+        DataInputFragment dataInput = (DataInputFragment) fragmentManager
                 .findFragmentById(R.id.fragment_container_view_1);
         assert dataInput != null;
         Data data = dataInput.getData();
